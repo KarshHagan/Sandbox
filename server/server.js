@@ -1,6 +1,8 @@
 
 'use strict';
 
+require('dotenv').config();
+
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
@@ -10,22 +12,32 @@ const FileStore = require('session-file-store')(session);
 const routes = require('./api-v1.js');
 const server = express();
 
-// Development Server Options
-
 const isDev = process.env.NODE_ENV !== 'production';
 const env  = isDev ? 'development' : process.env.NODE_ENV;
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || 'localhost';
 
 server.set('env', env);
-server.set('host', host); 
+server.set('host', host);
 server.set('port', port);
 
+// Development Server Options
 if (isDev) {
   server.use(require('connect-livereload')({ port: 35729 }));
 }
 
 // Production Server Options
+// Force SSL
+if (!isDev) {
+  server.use(function(req, res, next) {
+    // The 'x-forwarded-proto' check is for Heroku
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https' && env !== 'development') {
+      console.log('redirect to HTTPS');
+      return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+  });
+}
 
 // Parse POST data
 server.use(bodyParser.json());

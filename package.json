@@ -11,7 +11,7 @@
   },
   "private": false,
   "scripts": {
-    "start": "node server/server.js",
+    "start": "gulp --env production && node server/server.js",
     "dev": "killall node || true && gulp"
   },
   "main": "server/server.js",

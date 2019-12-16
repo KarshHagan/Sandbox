@@ -12,9 +12,14 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const source = require('vinyl-source-stream');
 
-const server = gls('./server/server.js');
+var args = process.argv.slice(2);
+var options = {};
+if (args[0] === "--env" && args[1] === "production") {
+  options = { env: { NODE_ENV: 'production' } };
+}
+const server = gls('./server/server.js', options);
 
-const {pages, paths} = require('./gulpConfiguration.js');
+const { pages, paths } = require('./gulpConfiguration.js');
 
 // search patterns
 var sourcePatterns = {

@@ -3,15 +3,14 @@ const _ = require('lodash');
 const gulp = require('gulp');
 const sequence = require('run-sequence');
 
-const {paths, builds, pages} = require('./server/gulpConfiguration.js');
-const {taskList, sourcePatterns} = require('./server/gulpTasks.js');
+const { paths, builds, pages } = require('./server/gulpConfiguration.js');
+const { taskList, sourcePatterns } = require('./server/gulpTasks.js');
 
 const makeTaskLongName = (shortName, page) => { return page.path + ':' + shortName; }
 const makePatternPath = (pattern, page) => { return paths.app + page.path + sourcePatterns[pattern]; }
 
 
 /////////////////////////////////////////////
-
 
 var fullTaskList = _.map(pages, (page) => {
 
@@ -74,10 +73,17 @@ var fullTaskList = _.map(pages, (page) => {
   gulp.task(makeTaskLongName('build-all', page), buildMap);
 
   // return a combined task of the build map and the watch map
-  return [
-    makeTaskLongName('build-all', page),
-    makeTaskLongName('watch-all', page)
-  ];
+  var args = process.argv.slice(2);
+  if (args[0] === "--env" && args[1] === "production") {
+    return [
+      makeTaskLongName('build-all', page)
+    ];
+  } else {
+    return [
+      makeTaskLongName('build-all', page),
+      makeTaskLongName('watch-all', page)
+    ];
+  }
 
 });
 
