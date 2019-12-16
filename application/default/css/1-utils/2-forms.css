@@ -1,0 +1,162 @@
+
+/////////////////////////////////////////
+///// FORMS RESETS
+
+form {
+  margin-top: 3em;
+  position: relative;
+  background-color: $very_light_gray;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+-webkit-autofill  {
+  box-shadow: 0 0 0px 1000px $very_light_gray inset;
+  -webkit-text-fill-color: $light_gray !important;
+}
+
+::-webkit-input-placeholder { color: $black; }
+::-moz-placeholder { color: $black; opacity: 1; }
+:-moz-placeholder { color: $black; opacity: 1; }
+-moz-placeholder { color: $black; opacity: 1; }
+:-ms-input-placeholder { color: $black; }
+-ms-input-placeholder { color: $black; }
+::placeholder { color: $black; }
+
+.blog-search {
+  ::-webkit-input-placeholder { color: $white; }
+  ::-moz-placeholder { color: $white; opacity: 1; }
+  :-moz-placeholder { color: $white; opacity: 1; }
+  -moz-placeholder { color: $white; opacity: 1; }
+  :-ms-input-placeholder { color: $white; }
+  -ms-input-placeholder { color: $white; }
+  ::placeholder { color: $white; }
+}
+
+input, textarea {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $light_gray;
+  width: 90%;
+  font-size: 1em;
+  padding: 0 0 3px;
+  margin: 0 auto 35px;
+  display: block;
+  font-family: inherit;
+  color: $dark_gray;
+  min-width: 0; /*inputs and fieldset defaults to having a min-width equal to its content in Chrome and Firefox (https://code.google.com/p/chromium/issues/detail?id=560762), we may not want that*/
+  &:focus { outline: none; }
+}
+
+textarea {
+  margin-bottom: 60px;
+  height: auto;
+  min-height: 5em;
+}
+
+input.search-input {
+  width: 75%;
+  margin-top: 8px;
+  background-color: transparent;
+  border: none;
+  padding-left: 0.5em;
+  &:focus { outline: none !important; }
+}
+
+/* For IE, we want to remove the default cross ('X') that appears in input fields when a user starts typing - Make sure you add your own! */
+input::-ms-clear { display: none; }
+/*Mozilla shows the spinner UI on number inputs unless we use this:*/
+input[type="number"] { -moz-appearance: textfield; }
+/*Removes the little spinner controls for number type inputs (WebKit browsers/forks only)*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { appearance: none; margin: 0; }
+
+
+input[type=checkbox], input[type=radio] {
+  vertical-align: top;
+  text-rendering: optimizeSpeed;
+  display: inline-block;
+  width: auto;
+  margin: 0px 20px 20px 6%;
+  position: relative;
+  cursor: pointer;
+  transform: scale(1.35);
+}
+
+input[type=file] {
+  height: 1px;
+  margin: 0;
+}
+.upload-label {
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid $light_gray;
+  width: 90%;
+  font-size: 1em;
+  padding: 0 0 8px;
+  margin: 0 auto 35px;
+  display: block;
+  font-family: $body-font;
+  color: $black;
+}
+
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: block;
+  border-radius: 0;
+  background: none;
+  border: none;
+  font-size: 1em;
+  font-family: inherit;
+  background-color: $white;
+  color: $light_gray;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  padding: 0.125rem 0.125rem 0.0625rem;
+  box-shadow: none;
+}
+
+
+legend {
+  text-align: center;
+  margin: 0 20px 40px;
+
+  h2:after {
+    content: none;
+  }
+}
+
+
+/////////////////////////////////////////
+/// HUBSPOT overrides
+
+.hs-form-required,
+.hs_recaptcha { display: none; }
+
+.hs-error-msgs label {
+  color: $black;
+  font-size: 13px;
+  float: right;
+}
+
+.hs-form-booleancheckbox-display {
+  cursor: pointer;
+  span {
+    color: $middle_gray;
+    font-size: 1em; line-height: 1em;
+  }
+}
+.hs-form ul.inputs-list {
+  margin-left: 0;
+}
+
+#hbl-live-chat-wrapper { // olark
+  z-index: 10;
+}

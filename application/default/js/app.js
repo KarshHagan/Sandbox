@@ -9,10 +9,7 @@ import { history, store } from './database/store.js';
 
 import * as Actions from './database/actions.js';
 
-import NavBar from './components/navbar.js';
 import HomePage from './pages/home.js';
-import AboutPage from './pages/about.js';
-import BlogPage from './pages/blog.js';
 
 // simple way to create pass-along redux containers
 const defaultMapStateToProps = (a)=>(a); // give them everything
@@ -30,10 +27,7 @@ render(
     <ConnectedRouter history={history}>
       <Router>
         <div>
-          <NavBar />
           <Route exact path="/" component={container(HomePage)}/>
-          <Route exact path="/about" component={container(AboutPage)}/>
-          <Route exact path="/blog" component={container(BlogPage)}/>
         </div>
       </Router>
     </ConnectedRouter>

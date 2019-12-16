@@ -8,6 +8,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const auth = require('basic-auth');
 
 const routes = require('./api-v1.js');
 const server = express();
@@ -35,6 +36,16 @@ if (!isDev) {
       console.log('redirect to HTTPS');
       return res.redirect('https://' + req.get('host') + req.url);
     }
+    // HTTP authentication
+    var credentials = auth(req);
+    if (!credentials || credentials.name !== 'karsh' || credentials.pass !== 'hagan') {
+      res.statusCode = 401;
+      res.setHeader('WWW-Authenticate', 'Basic realm="Karsh Hagan Brand Name Generator"');
+      res.end('Access denied.');
+      return;
+    }
+    // set noindex header
+    res.set('X-Robots-Tag', 'noindex, nofollow');
     next();
   });
 }
@@ -55,7 +66,7 @@ server.use(session({
 routes.createRoutes(server);
 
 // static paths for the rest
-server.get('/', express.static('./distribution/1-simple'));
+server.get('/', express.static('./distribution/default'));
 server.use(express.static('./distribution'));
 
 // Create the server

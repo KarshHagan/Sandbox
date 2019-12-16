@@ -1,0 +1,118 @@
+
+//////////////////// RESET ///////////////////////
+
+* { transition: all 150ms; }
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  list-style: none;
+}
+
+/*  Thanks to L. David Baron for this: https://twitter.com/davidbaron/status/794138427952222210 */
+base, basefont, datalist, head, meta, script, style, title, noembed, param, template { display: none; }
+
+html, body {
+  box-sizing: border-box;
+  height: 1px;
+  font-family: $body_font;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: $dark_gray;
+  font-weight: normal;
+  font-style: normal;
+}
+
+body > * { white-space: 0; } /* for inline elements */
+
+// scrollbars
+body {
+  -webkit-overflow-scrolling: touch; // IOS
+  -ms-overflow-style: -ms-autohiding-scrollbar; // MS
+  scrollbar-width: thin; // FF, doesn't work on body yet
+  scrollbar-color: $light_gray $dark_gray; // FF, doesn't work on body yet
+}
+// Chrome
+body::-webkit-scrollbar {
+  height: 0.675rem;
+  width: 0.675rem;
+}
+body::-webkit-scrollbar-track {
+  background-color: $very_light_gray;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: $light_gray;
+}
+body::-webkit-scrollbar-thumb:vertical {
+  min-height: 6rem;
+}
+body::-webkit-scrollbar-thumb:horizontal {
+  min-width: 6rem;
+}
+
+* {
+  margin: 0px;
+  vertical-align: top;
+  -webkit-tap-highlight-color: $red;
+  box-sizing: inherit;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+:before, :after {
+  box-sizing: inherit;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body, div, section, nav { z-index: 1; position: relative; }
+section { background-color: $white; }
+svg { display: block; }
+svg * { transition: none; }
+
+img {
+  width: auto\9; // IE Hack
+  height: auto;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+  position: relative;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  background-color: $light_gray;
+  margin: 10px auto;
+}
+
+strong { font-weight: bold; }
+em { font-style: italic; }
+
+ul { font-size: 0; }
+
+::-moz-selection {
+  background: $red;
+  color: $white;
+  text-shadow: none;
+}
+
+::selection {
+  background: $red;
+  color: $white;
+  text-shadow: none;
+}
+
+// For IE
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  html {
+    -ms-overflow-x: hidden;
+  }
+}

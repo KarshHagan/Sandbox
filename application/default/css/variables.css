@@ -1,0 +1,35 @@
+
+// greys
+$dark_gray: #3C3C3C;
+$middle_gray: #6F6F6F;
+$light_gray: #BBBDBF;
+$very_light_gray: #EAEAEA;
+
+// black and white
+$black: #010102;
+$white: #fdfdfe;
+$true_black: black;
+$true_white: white;
+$trans_white_low: rgba(255, 255, 255, 0.3);
+$trans_white_high: rgba(255, 255, 255, 0.7);
+$trans_black_low: rgba(0, 0, 0, 0.2);
+$trans_black: rgba(0, 0, 0, 0.5);
+$trans_black_high: rgba(0, 0, 0, 0.7);
+
+// colors
+$red: #CB2026;
+$trans_red: rgba(203,32,38,0);
+$over_red: rgba(203,32,38,0.95);
+$rgb_red: rgba(203,32,38,1);
+$blue: #3b82e2;
+
+// fonts
+$headline_font: "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, sans-serif;
+$body_font: Merriweather, Roboto, "Helvetica Neue", Helvetica, sans-serif;
+
+// media queries
+// https://medium.freecodecamp.org/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862
+$break-mobile: 600px;
+$break-tablet: 900px;
+$break-desktop: 1200px;
+$break-desktop-lg: 1800px;

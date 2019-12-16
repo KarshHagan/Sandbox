@@ -1,0 +1,10 @@
+
+/* body { background-color: $very_light_gray; } */
+
+#react-root { width: 80%; max-width: 1400px; margin: auto; }
+
+#react-root h1 { color: $black;  left: -6px; }
+
+.chip.MuiChip-root { margin: 0 5px 5px 0; }
+
+/* .next-button { float: right; } */

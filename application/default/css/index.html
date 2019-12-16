@@ -1,0 +1,19 @@
+<html>
+<head>
+  <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+</head>
+<body style="margin : 0px; overflow: hidden;">
+  <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
+    <a-assets>
+      <a-asset-item id="logo-obj" src="KH_logo_smallformat.obj"></a-asset-item>
+    </a-assets>
+    <a-marker-camera type="pattern" url="pattern-Triangle-lg.patt">
+      <a-entity rotation="90 0 0" light="type: directional; color: #FFF; intensity: 1;" position="0 1 -0.5" scale="0.0005 0.0005 0.0005" >
+        <a-entity position="0 -10....0 0.5" obj-model="obj: #logo-obj;" material="color: #CB2026"></a-entity>
+        <!-- animation="round: true; property: rotation; to: 0 1440 0; easing: linear; dur: 80000; loop: true;" -->
+      </a-entity>
+    </a-marker-camera>
+  </a-scene>
+</body>
+</html>

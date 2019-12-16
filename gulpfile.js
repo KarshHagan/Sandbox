@@ -3,14 +3,15 @@ const _ = require('lodash');
 const gulp = require('gulp');
 const sequence = require('run-sequence');
 
-const { paths, builds, pages } = require('./server/gulpConfiguration.js');
-const { taskList, sourcePatterns } = require('./server/gulpTasks.js');
+const {paths, builds, pages} = require('./server/gulpConfiguration.js');
+const {taskList, sourcePatterns} = require('./server/gulpTasks.js');
 
 const makeTaskLongName = (shortName, page) => { return page.path + ':' + shortName; }
 const makePatternPath = (pattern, page) => { return paths.app + page.path + sourcePatterns[pattern]; }
 
 
 /////////////////////////////////////////////
+
 
 var fullTaskList = _.map(pages, (page) => {
 

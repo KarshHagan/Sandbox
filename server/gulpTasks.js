@@ -19,7 +19,7 @@ if (args[0] === "--env" && args[1] === "production") {
 }
 const server = gls('./server/server.js', options);
 
-const { pages, paths } = require('./gulpConfiguration.js');
+const {pages, paths} = require('./gulpConfiguration.js');
 
 // search patterns
 var sourcePatterns = {
