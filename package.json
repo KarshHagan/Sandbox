@@ -9,7 +9,7 @@
   "private": true,
   "scripts": {
     "start": "gulp --env production && node server/server.js",
-    "dev": "killall node || true && gulp"
+    "dev": "gulp"
   },
   "main": "server/server.js",
   "author": "Karsh Hagan",
