@@ -58,32 +58,6 @@ Full ES6 build with support for import statements.
 An examples of React, Redux, and React Router v4.
 
 
-
-## Deploy to [Google Cloud Platform](https://cloud.google.com/)
-
-1.  Install [Node.js](https://nodejs.org/en/).
-1.  Install [git](https://git-scm.com/).
-1.  Create a [Google Cloud Platform project](https://console.cloud.google.com).
-1.  Install the [Google Cloud SDK](https://cloud.google.com/sdk/).
-
-1.  After downloading the SDK, initialize it:
-
-        gcloud init
-        git clone https://github.com/bishopZ/Sandbox
-        cd Sandbox
-        npm install
-        npm run dev
-
-1.  View the app at [http://localhost:8080](http://localhost:8080).
-1.  Stop the app by pressing `Ctrl+C`.
-1.  Deploy the app:
-
-        gcloud app deploy
-
-1.  View the deployed app at [https://YOUR_PROJECT_ID.appspot.com](https://YOUR_PROJECT_ID.appspot.com).
-
-
-
 ## Deploy to [Heroku](https://www.heroku.com/)
 
 1.  Install [git](https://git-scm.com/).
@@ -114,6 +88,3 @@ An examples of React, Redux, and React Router v4.
 ## Contributors
 
 - [Bishop Zareh](http://bishopz.com) http://bishopz.com
-
-
-

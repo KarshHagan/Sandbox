@@ -71,7 +71,7 @@ body::-webkit-scrollbar-thumb:horizontal {
 
 body, div, section, nav { z-index: 1; position: relative; }
 section { background-color: $white; }
-svg { display: block; }
+svg { display: block; overflow: visible; }
 svg * { transition: none; }
 
 img {
