@@ -3,8 +3,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-var HomePage = ({ history, data }) => {
-  console.log(history, data);
+var HomePage = ({ dispatch, data }) => {
+  console.log(data, dispatch);
 
   return (
     <div className="render-group">
@@ -15,7 +15,7 @@ var HomePage = ({ history, data }) => {
 };
 
 HomePage.propTypes = {
-  history: PropTypes.object,
+  dispatch: PropTypes.function,
   data: PropTypes.object,
 };
 

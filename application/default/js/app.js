@@ -1,39 +1,54 @@
 
-import React from 'react';
-import { render } from 'react-dom';
-import { HashRouter as Router, Route } from 'react-router-dom';
+import React, { useEffect, useReducer } from 'react';
+import ReactDOM from 'react-dom';
 
-import { Provider, connect } from 'react-redux';
-import { ConnectedRouter } from 'connected-react-router';
-import { history, store } from './database/store.js';
-
+import { reducer, initialState } from './database/reducer.js';
 import * as Actions from './database/actions.js';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/home.js';
 
-// simple way to create pass-along redux containers
-const defaultMapStateToProps = (a)=>(a); // give them everything
-const defaultMapDispatchToProps = Actions; // give them everything
-const container = (Page) => {
-  return connect(
-    defaultMapStateToProps, // which properties are sent to the page
-    defaultMapDispatchToProps // which functions are sent to the page
-  )(Page);
-};
 
 // render the router
-render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Router>
-        <div>
-          <Route exact path="/" component={container(HomePage)}/>
-        </div>
-      </Router>
-    </ConnectedRouter>
-  </Provider>,
-  document.getElementById('react-root')
-);
+
+const LandingPage = () => {
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const { fetchStart, fetchComplete } = state;
+
+  // const WP_HOST = "";
+  // async function fetchData() {
+  //   const response = await fetch(WP_HOST + "/wp-json/inr/v1/locations");
+  //   response.json()
+  //     .then((response) => {
+  //       dispatch({
+  //         type: Actions.LIST_RECEIVED,
+  //         list: response.locations
+  //       });
+  //     }).catch((error) => dispatch({ type: Actions.ERROR, error}));
+  // }
+
+  useEffect(() => {
+    if (!fetchStart && !fetchComplete) {
+      dispatch({ type: Actions.FETCH_START });
+      // fetchData();
+    }
+  });
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <HomePage dispatch={dispatch} data={state} />
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
+
+const node = document.getElementById('react-root');
+if (node) { ReactDOM.render(<LandingPage />, node); }
 
 // it has begun
 console.log('%c App Started', 'color:green');

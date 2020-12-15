@@ -9,9 +9,6 @@ const paths = {
 // Paths to node modules
 const libs = {
   // 'jquery': paths.modules + 'jquery/dist/jquery.js',
-  // 'bootstrapjs': paths.modules + 'bootstrap/dist/js/bootstrap.js',
-  // 'bootstrapcss': paths.modules + 'bootstrap/dist/css/bootstrap.css',
-  // 'bootstrapfonts': paths.modules + 'bootstrap/fonts/**/*.*',
   // 'fontawesome': paths.modules + 'font-awesome/fonts/**/*.*'
 }
 
