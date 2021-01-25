@@ -14,7 +14,7 @@ const routes = require('./api-v1.js');
 const server = express();
 
 const isDev = process.env.NODE_ENV !== 'production';
-const env  = isDev ? 'development' : process.env.NODE_ENV;
+const env = isDev ? 'development' : process.env.NODE_ENV;
 const port = process.env.PORT || 8080;
 const host = process.env.HOST || 'localhost';
 
@@ -32,10 +32,10 @@ if (isDev) {
 if (!isDev) {
   server.use(function(req, res, next) {
     // The 'x-forwarded-proto' check is for Heroku
-    if (!req.secure && req.get('x-forwarded-proto') !== 'https' && env !== 'development') {
-      console.log('redirect to HTTPS');
-      return res.redirect('https://' + req.get('host') + req.url);
-    }
+    // if (!req.secure && req.get('x-forwarded-proto') !== 'https' && env !== 'development') {
+    //   console.log('redirect to HTTPS');
+    //   return res.redirect('https://' + req.get('host') + req.url);
+    // }
     // HTTP authentication
     var credentials = auth(req);
     if (!credentials || credentials.name !== 'karsh' || credentials.pass !== 'hagan') {
