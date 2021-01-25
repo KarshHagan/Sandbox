@@ -17,8 +17,8 @@ html, body {
   box-sizing: border-box;
   height: 1px;
   font-family: $body_font;
-  -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $dark_gray;
   font-weight: normal;
@@ -97,18 +97,6 @@ strong { font-weight: bold; }
 em { font-style: italic; }
 
 ul { font-size: 0; }
-
-::-moz-selection {
-  background: $red;
-  color: $white;
-  text-shadow: none;
-}
-
-::selection {
-  background: $red;
-  color: $white;
-  text-shadow: none;
-}
 
 // For IE
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

@@ -19,13 +19,13 @@
 }
 
 
-/////////////////////////////////////
-
-html {
-  font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+::selection {
+  background: $red;
+  color: $white;
+  text-shadow: none;
 }
+
+/////////////////////////////////////
 
 body, h1, h2, h3, h4, h5, h6, p, li {
   margin: 0;
