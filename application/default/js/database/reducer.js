@@ -1,5 +1,6 @@
 
 import * as Actions from './actions.js';
+import Cookies from './cookies.js';
 
 export const initialState = {
   fetchStart: false,
@@ -8,9 +9,16 @@ export const initialState = {
   currentList: [],
   selectedRegion: null,
   searchPhrase: '',
+  language: 'en',
+  country: 'us',
   host: window.location.host,
   path: window.location.pathname,
 };
+
+var langPref = Cookies.get('language');
+var countryPref = Cookies.get('country');
+if (langPref) initialState.language = langPref;
+if (countryPref) initialState.country = countryPref;
 
 // private state storage
 var currentState = Object.assign({}, initialState);
@@ -23,11 +31,18 @@ export const reducer = (state, action) => {
 
   switch (action.type) {
 
-  case Actions.FETCH_START:
-    currentState.fetchStart = true;
-    return newState();
+  // case Actions.FETCH_START:
+  //   currentState.fetchStart = true;
+  //   return newState();
+  //
+  // case Actions.LIST_RECEIVED:
+  //   return newState();
 
-  case Actions.LIST_RECEIVED:
+  case Actions.UPDATE_LANGUAGE:
+    currentState.language = action.language;
+    Cookies.set('language', action.language);
+    currentState.country = action.country;
+    Cookies.set('country', action.country);
     return newState();
 
   default:

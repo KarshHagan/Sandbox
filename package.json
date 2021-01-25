@@ -7,6 +7,12 @@
     "url": "git@github.com:KarshHagan/Sandbox.git"
   },
   "private": true,
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
   "scripts": {
     "start": "gulp --env production && node server/server.js",
     "dev": "gulp"
@@ -51,6 +57,7 @@
     "react-dom": "16.13.1",
     "react-router": "5.2.0",
     "react-router-dom": "5.2.0",
+    "react-scroll-trigger": "0.6.10",
     "run-sequence": "2.2.1",
     "session-file-store": "1.2.0",
     "superagent": "3.8.3",

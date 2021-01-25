@@ -3,14 +3,12 @@ import React, { useEffect, useReducer } from 'react';
 import ReactDOM from 'react-dom';
 
 import { reducer, initialState } from './database/reducer.js';
-import * as Actions from './database/actions.js';
+// import * as Actions from './database/actions.js';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import HomePage from './pages/home.js';
 
-
 // render the router
-
 const LandingPage = () => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -31,7 +29,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     if (!fetchStart && !fetchComplete) {
-      dispatch({ type: Actions.FETCH_START });
+      // dispatch({ type: Actions.FETCH_START });
       // fetchData();
     }
   });
@@ -47,7 +45,7 @@ const LandingPage = () => {
   );
 };
 
-const node = document.getElementById('react-root');
+const node = document.getElementById('content');
 if (node) { ReactDOM.render(<LandingPage />, node); }
 
 // it has begun
